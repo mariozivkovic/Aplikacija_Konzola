@@ -1,3 +1,3 @@
 # Aplikacija_Konzola
  Završni rad "Otpremna stanica"
-Napravljen kompletan croot za naftno polje.
+Napravljen kompletan croot za naftno polje, bušotinu, zaposlenika, posao.
