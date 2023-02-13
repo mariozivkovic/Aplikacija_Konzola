@@ -99,10 +99,11 @@ public class Pomocno {
 		return date;
 	}
 
-	public static BigDecimal unosBigDecimal(String poruka) {
+	public static BigDecimal unosDecimal(String poruka) {
 		System.out.print(poruka);
-		String unos = ulaz.nextLine();
-		ulaz.close();
-		return new BigDecimal(unos);
+		String tlakovi = ulaz.nextLine();
+		return new BigDecimal(tlakovi);
+
 	}
-}
+	}
+

@@ -95,7 +95,7 @@ public class ObradaPosao {
 		izbornik();
 
 	}
-	private void pregled(boolean prikaziIzbornik) {
+	public void pregled(boolean prikaziIzbornik) {
 		System.out.println("\nPoslovi u aplikaciji: ");
 		int rb = 1;
 		for (Posao p : poslovi) {

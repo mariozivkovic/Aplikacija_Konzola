@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import zivkovic.Pomocno;
+
 public class PosaoBusotina extends Entitet {
 
 	
@@ -13,12 +15,13 @@ public class PosaoBusotina extends Entitet {
 	private BigDecimal tlakTubinga;
 	private BigDecimal tlakNaftovoda;
 	private BigDecimal tlakCasinga;
-	
+
 	
 	
 
 	public PosaoBusotina() {
 		super();
+	
 		
 	}
 	
@@ -31,6 +34,7 @@ public class PosaoBusotina extends Entitet {
 		this.tlakTubinga = tlakTubinga;
 		this.tlakNaftovoda = tlakNaftovoda;
 		this.tlakCasinga = tlakCasinga;
+		
 	}
 
 
@@ -85,7 +89,8 @@ public class PosaoBusotina extends Entitet {
 	@Override
 	public String toString() {
 		
-		return posao.getNaziv() + busotina.getNaziv() + napomena + tlakTubinga + tlakNaftovoda + tlakCasinga;
+		return posao.getNaziv() + " (" +" na busotini - " +busotina.getNaziv() + " )" + "(" + napomena + ")" +
+				" (" +" Pt "+ tlakTubinga + ") " + "(" + " Pn " + tlakNaftovoda + " )" + "("+ " Pc " +tlakCasinga + ")";
 		
 	}
 

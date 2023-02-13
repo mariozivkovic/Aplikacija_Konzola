@@ -18,7 +18,7 @@ public class ObradaOdrzavanje {
 
 	private List<Odrzavanje> odrzavanja;
 	private Start start;
-
+	
 	
 	public ObradaOdrzavanje(Start start) {
 		super();
@@ -38,7 +38,9 @@ public class ObradaOdrzavanje {
 	private void testPodaci() {
 		if(Pomocno.DEV) {
 			
+			//odrzavanja.add(new Odrzavanje(1, new Date(13-02-2023), start.getZaposlenici().getZaposlenici().subList(0, 1), start.getOdrzavanja().getOdrzavanja().add(new Odrzavanje(1, new Date(13-02-2023), start.getZaposlenici().getZaposlenici().subList(0, 1), new PosaoBusotina(1, new Posao(1, "Aktiviranje kugle"), new Busotina(1, "LA-12", true, start.getNaftnaPolja().getNaftnaPolja().subList(0, 1)), "Bušotina radi dobro", new BigDecimal(9.5), new BigDecimal(9.0), new BigDecimal(4.0))))));
 		}
+					
 		
 	}
 
@@ -101,11 +103,43 @@ public class ObradaOdrzavanje {
 		pregled(false);
 		int rb = Pomocno.unesiBrojRaspona("Unesite održavanje koje želite promjeniti: ", 1,odrzavanja.size());
 		Odrzavanje o = odrzavanja.get(rb-1);
-	
+		o.setSifra(Pomocno.unesiBrojRaspona("Unesi šifru odrzavanja: ", 1, Integer.MAX_VALUE));
+		o.setDatum(Pomocno.unosDatuma("Unesite datum odrzavanja"));
 		
-		
-	
+		while(true) {
+			start.getZaposlenici().pregled(false);
+			rb = Pomocno.unesiBrojRaspona("Unesite zaposlenika koji obavlja odrzavanje kojeg želite promjeniti: ", 1,
+					start.getZaposlenici().getZaposlenici().size());
+			o.getZaposlenici().add(start.getZaposlenici().getZaposlenici().get(rb-1));
+			
+			
+		while(true) {
+			PosaoBusotina pb = new PosaoBusotina();
+			start.getBusotine().pregled(false);
+			pb.setBusotina(start.getBusotine().getBusotine().
+					get(Pomocno.unesiBrojRaspona("Odaberite bušotinu na kojoj se obavlja održavanje koju želite promjeniti: ", 1, 3)-1));
+			start.getPoslovi().pregled(false);
+			pb.setPosao(start.getPoslovi().getPoslovi().get(Pomocno.unesiBrojRaspona("Odaberite posao koji se obavlja na održavanju koji želite promjeniti: ", 1, 3)-1));
+			pb.setNapomena(Pomocno.unosTeksta("Unesite napomenu koju želite promjeniti: "));
+			pb.setTlakTubinga(Pomocno.unosDecimal("Unesite tlak tubinga koji želite promjeniti: "));
+			pb.setTlakNaftovoda(Pomocno.unosDecimal("Unesite tlak naftovoda koji želite promjeniti: "));
+			pb.setTlakCasinga(Pomocno.unosDecimal("Unesite tlak casinga koji želite promjeniti: "));
+			o.getPosloviBusotine().add(pb);
+			break;
 			}
+			if(Pomocno.unesiBrojRaspona("0 za kraj promjene zaposlenika, 1 za nastavak promjene: ", 0, Integer.MAX_VALUE)==0) {
+				break;
+			}
+			izbornik();
+		}
+			
+		
+	
+		
+	}
+	
+
+
 		
 		
 		
@@ -123,33 +157,38 @@ public class ObradaOdrzavanje {
 			int rb = Pomocno.unesiBrojRaspona("Unesite zaposlenika koji obavlja odrzavanje: ", 1,
 					start.getZaposlenici().getZaposlenici().size());
 			o.getZaposlenici().add(start.getZaposlenici().getZaposlenici().get(rb-1));
-			start.getPoslovi().pregled(false);
-		   rb = Pomocno.unesiBrojRaspona("Unesite posao koji se obavlja na odrzavanju: ", 1, 
-					start.getPoslovi().getPoslovi().size());
+			
+		
+		while(true) {
+			PosaoBusotina pb = new PosaoBusotina();
 			start.getBusotine().pregled(false);
-			rb = Pomocno.unesiBrojRaspona("Unesite bušotinu na kojoj se obavlja odrzavanje: ", 1,
-					start.getBusotine().getBusotine().size());
-			
-			
-			
-			if(Pomocno.unesiBrojRaspona("0 za kraj dodavanja zaposlenika", 0, Integer.MAX_VALUE)==0) {
+			pb.setBusotina(start.getBusotine().getBusotine().
+					get(Pomocno.unesiBrojRaspona("Odaberite bušotinu na kojoj se obavlja održavanje: ", 1, 3)-1));
+			start.getPoslovi().pregled(false);
+			pb.setPosao(start.getPoslovi().getPoslovi().get(Pomocno.unesiBrojRaspona("Odaberite posao koji se obavlja na održavanju: ", 1, 3)-1));
+			pb.setNapomena(Pomocno.unosTeksta("Unesite napomenu: "));
+			pb.setTlakTubinga(Pomocno.unosDecimal("Unesite tlak tubinga: "));
+			pb.setTlakNaftovoda(Pomocno.unosDecimal("Unesite tlak naftovoda: "));
+			pb.setTlakCasinga(Pomocno.unosDecimal("Unesite tlak casinga: "));
+			o.getPosloviBusotine().add(pb);
+			break;
+		}
+			if(Pomocno.unesiBrojRaspona("0 za kraj unosa , 1 za novi unos: ", 0, Integer.MAX_VALUE)==0) {
 				break;
-		
 			}
-		
 		}
 		odrzavanja.add(o);
 		izbornik();
 		}
 		
 	
-
+	
 
 
 
 
 	public void pregled(boolean prikaziIzbornik) {
-		System.out.println("Odrzavanja u aplikaciji");
+		System.out.println("Odrzavanja u aplikaciji: ");
 		int rb = 1;
 		for(Odrzavanje o : odrzavanja) {
 			System.out.println(rb++ + ". " + o);

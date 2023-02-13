@@ -1,11 +1,15 @@
 package zivkovic;
 
+
+
 import java.util.Scanner;
+
 
 import zivkovic.obrada.ObradaBusotina;
 import zivkovic.obrada.ObradaNaftnoPolje;
 import zivkovic.obrada.ObradaOdrzavanje;
 import zivkovic.obrada.ObradaPosao;
+
 import zivkovic.obrada.ObradaZaposlenik;
 
 public class Start {
@@ -15,7 +19,7 @@ public class Start {
 	private ObradaZaposlenik zaposlenici;
 	private ObradaPosao poslovi;
 	private ObradaOdrzavanje odrzavanja;
-	
+
 	
 	public Start() {
 		Pomocno.ulaz = new Scanner(System.in);
@@ -24,6 +28,10 @@ public class Start {
 		busotine = new ObradaBusotina(this);
 		poslovi = new ObradaPosao(this);
 		odrzavanja = new ObradaOdrzavanje(this);
+	
+	
+		
+		
 		pozdravnaPoruka();
 		glavniIzbornik();
 	}
@@ -56,6 +64,12 @@ public class Start {
 		case 3:
 			zaposlenici.izbornik();
 			break;
+		case 4:
+			poslovi.izbornik();
+			break;
+		case 5:
+			odrzavanja.izbornik();
+			break;
 		
 		case 6:
 			System.out.println("Doviđenja");
@@ -74,7 +88,44 @@ public class Start {
 		
 	}
 	
+	
 
+	
+
+
+	
+
+
+ 
+
+
+	
+
+	
+
+
+
+	
+
+
+	public ObradaOdrzavanje getOdrzavanja() {
+		return odrzavanja;
+	}
+
+
+	public ObradaBusotina getBusotine() {
+		return busotine;
+	}
+
+
+	public ObradaZaposlenik getZaposlenici() {
+		return zaposlenici;
+	}
+
+
+	public ObradaPosao getPoslovi() {
+		return poslovi;
+	}
 
 	public ObradaNaftnoPolje getNaftnaPolja() {
 		return naftnaPolja;

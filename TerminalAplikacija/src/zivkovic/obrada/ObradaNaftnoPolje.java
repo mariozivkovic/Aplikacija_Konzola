@@ -64,7 +64,7 @@ public class ObradaNaftnoPolje {
 			break;
 		case 4:
 			if(naftnaPolja.size()==0) {
-				System.out.println("Nema naftnih polja koje bi brisali ");
+				System.out.println("Nema naftnih polja koje bi obrisali ");
 				izbornik();
 			}else {
 			brisanje();
@@ -95,7 +95,7 @@ public class ObradaNaftnoPolje {
 		
 	}
 
-	private void pregled(boolean prikaziIzbornik) {
+	public void pregled(boolean prikaziIzbornik) {
 		System.out.println("\nNaftna polja u aplikaciji: ");
 		int rb=1;
 		for(NaftnoPolje nf : naftnaPolja) {

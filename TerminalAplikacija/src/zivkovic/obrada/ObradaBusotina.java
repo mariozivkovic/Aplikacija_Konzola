@@ -35,9 +35,9 @@ public class ObradaBusotina {
 	private void testPodaci() {
 		if(Pomocno.DEV) {
 			
-			busotine.add(new Busotina(1, "LA-12", true, start.getNaftnaPolja().getNaftnaPolja().subList(1, 3)));
-			busotine.add(new Busotina(2, "LA-10", true, start.getNaftnaPolja().getNaftnaPolja().subList(1, 3)));
-			busotine.add(new Busotina(3, "LA-17", true, start.getNaftnaPolja().getNaftnaPolja().subList(1, 3)));
+			busotine.add(new Busotina(1, "LA-12", true, start.getNaftnaPolja().getNaftnaPolja().subList(0, 1)));
+			busotine.add(new Busotina(2, "LA-10", true, start.getNaftnaPolja().getNaftnaPolja().subList(0, 1)));
+			busotine.add(new Busotina(3, "LA-17", true, start.getNaftnaPolja().getNaftnaPolja().subList(0, 1)));
 			
 			
 		}

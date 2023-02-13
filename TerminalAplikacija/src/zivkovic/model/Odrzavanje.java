@@ -44,8 +44,8 @@ public class Odrzavanje extends Entitet {
 	}
 	@Override
 	public String toString() {
-		String naziv="";
-		return naziv + zaposlenici.size() + posloviBusotine.size();
+		
+		return datum + " " +  zaposlenici + " " + posloviBusotine;
 	}
 	
 	
