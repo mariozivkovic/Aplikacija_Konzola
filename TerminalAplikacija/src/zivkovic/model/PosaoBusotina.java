@@ -89,7 +89,7 @@ public class PosaoBusotina extends Entitet {
 	@Override
 	public String toString() {
 		
-		return posao.getNaziv() + " (" +" na busotini - " +busotina.getNaziv() + " )" + "(" + napomena + ")" +
+		return posao + " (" +" na busotini - " + busotina.getNaziv() + " )" + "(" + napomena + ")" +
 				" (" +" Pt "+ tlakTubinga + ") " + "(" + " Pn " + tlakNaftovoda + " )" + "("+ " Pc " +tlakCasinga + ")";
 		
 	}

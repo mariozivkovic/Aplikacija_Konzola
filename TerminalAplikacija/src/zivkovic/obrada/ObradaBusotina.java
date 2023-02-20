@@ -112,6 +112,15 @@ public class ObradaBusotina {
 		b.setNaziv(Pomocno.unosTeksta("Unesite naziv bušotine: "));
 		b.setAktivna(Pomocno.aktivnost("Upišite dali je bušotina aktivna DA/NE: "));
 	
+		while(true) {
+			start.getNaftnaPolja().pregled(false);
+			rb = Pomocno.unesiBrojRaspona("Odaberite naftno poje na kojem se nalazi bušotina koju želite promjeniti: ", 1,
+					start.getNaftnaPolja().getNaftnaPolja().size());
+		b.getNaftnaPolja().add(start.getNaftnaPolja().getNaftnaPolja().get(rb - 1));
+		if(Pomocno.unesiBrojRaspona("0 za kraj dodavanja naftnog polja: ", 0, Integer.MAX_VALUE)==0) {
+			break;
+		}
+		}
 		izbornik();
 		
 	}
@@ -142,7 +151,7 @@ public class ObradaBusotina {
 
 
 	public void pregled(boolean prikaziIzbornik) {
-		System.out.println("Bušotine u aplikaciji");
+		System.out.println("\nBušotine u aplikaciji");
 		int rb=1;
 		for(Busotina b : busotine) {
 			System.out.println(rb++ + ". " + b);

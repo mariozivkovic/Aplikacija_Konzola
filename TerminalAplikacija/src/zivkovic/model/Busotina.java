@@ -49,7 +49,7 @@ public class Busotina extends Entitet {
 	@Override
 	public String toString() {
 	
-		return naziv + "" +  naftnaPolja;
+		return naziv;
 	}
 	
 
